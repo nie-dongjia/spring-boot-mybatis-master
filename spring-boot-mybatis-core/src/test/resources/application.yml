@@ -1,0 +1,45 @@
+#默认
+#spring.profiles.active
+#spring.profiles.active=prod
+#spring.profiles.active=dev
+spring:
+    profiles:
+        active: dev
+
+
+## 该配置节点为独立的节点，有很多同学容易将这个配置放在spring的节点下，导致配置无法被识别
+mybatis:
+  mapper-locations: classpath:mapping/*.xml
+  config-location: classpath:mybatis-config.xml
+  #注意：一定要对应mapper映射xml文件的所在路径
+  type-aliases-package: com.djn.cn.sboot.mybatis.*.entity
+  # 注意：对应实体类的路径
+
+pagehelper:
+    helperDialect: mysql
+    reasonable: true
+    supportMethodsArguments: true
+    params: count=countSql
+
+
+
+
+
+
+
+
+
+
+#默认
+#结论
+#各个环境公共的配置写在application.properties中
+#各个模块独有的配置配置在自己的application-{xxx}.properties文件中
+#程序读取的时候优先读取application.properties中选中的profile的配置，若读不到才会从application.properties去读
+
+#配置标准
+#https://blog.csdn.net/A632189007/article/details/78528323
+#spring.profiles.active这个配置项不仅可以在application.properties文件中进行配置，
+#还可以通过 java -jar 启动服务时添加到后面作为启动参数；这样也能够告诉服务使用哪个配置文件。
+#https://blog.csdn.net/hemin1003/article/details/53229053
+#   测试环境：java -jar xxx.jar --spring.profiles.active=dev  
+#   生产环境：java -jar xxx.jar --spring.profiles.active=prod  

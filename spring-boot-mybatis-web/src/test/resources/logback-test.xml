@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+<include resource="org/springframework/boot/logging/logback/base.xml" />
+<!-- 日志级别设置为 ERROR -->
+<root level="ERROR" />
+<!-- 输出 SQL 语句信息 -->
+<logger name="org.hibernate.SQL" level="DEBUG"/>
+<!-- 输出 SQL 语句参数信息 -->
+<logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="TRACE"/>
+</configuration>

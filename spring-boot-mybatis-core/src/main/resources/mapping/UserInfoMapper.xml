@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.djn.cn.spring.boot.master.base.dao.IUserInfoDAO">
+	<resultMap id="BaseResultMap" type="com.djn.cn.spring.boot.master.base.entity.UserInfo">
+		<id column="FID" property="id" jdbcType="VARCHAR" />
+		<result column="FName" property="name" jdbcType="VARCHAR" />
+		<result column="FDescription" property="description" jdbcType="VARCHAR" />
+		<result column="FCreateTime" property="createTime" jdbcType="TIMESTAMP" />
+		<result column="FLastUpdateTime" property="lastUpdateTime" jdbcType="TIMESTAMP" />
+		<result column="FCreatorId" property="creatorId" jdbcType="VARCHAR" />
+		<result column="FLastUpdateUserId" property="lastUpdateUserId" jdbcType="VARCHAR" />
+		
+		<result column="FUserName" property="userName" jdbcType="VARCHAR" />
+		<result column="FPassword" property="password" jdbcType="VARCHAR" />
+		<result column="FEmail" property="email" jdbcType="VARCHAR" />
+		<result column="FAge" property="age" jdbcType="INTEGER" />
+		<result column="FQQ" property="qq" jdbcType="VARCHAR" />
+		<result column="FTelphone" property="telphone" jdbcType="VARCHAR" />
+		<result column="FAddress" property="address" jdbcType="VARCHAR" />
+		<result column="FSex" property="sex" jdbcType="VARCHAR" />
+		<result column="FLocked" property="locked" jdbcType="BOOLEAN" />
+		<result column="FActivated" property="activated" jdbcType="BOOLEAN" />
+		<result column="FDeleted" property="deleted" jdbcType="BOOLEAN" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		FID, FName, FDescription, FCreateTime, FLastUpdateTime, FCreatorId,FLastUpdateUserId,
+		FUserName, FPassword, FEmail, FAge, FQQ, FTelphone,
+		FAddress, FSex, FLocked, FActivated, FDeleted
+	</sql>
+	<insert id="save" parameterType="com.djn.cn.spring.boot.master.base.entity.UserInfo">
+		insert into T_SYS_UserInfo (
+		FID, FName, FDescription,FCreateTime,FCreatorId,FLastUpdateUserId,
+        FUserName, FPassword, FEmail, FAge, FQQ, FTelphone,
+        FAddress, FSex, FLocked, FActivated, FDeleted
+		) values (
+		#{id}, #{name}, #{description},#{createTime},#{creatorId}, #{lastUpdateUserId}, 
+		#{userName}, #{password}, #{email},#{age}, #{qq},  #{telphone}, 
+		#{address}, #{sex}, #{locked},#{activated}, #{deleted}
+		)
+	</insert>
+    <select id="listAll" resultMap="BaseResultMap">
+    	SELECT * FROM  T_SYS_UserInfo 
+    </select>
+    <select id="findByUserNameAndPassword" resultMap="BaseResultMap">
+    	SELECT * FROM  T_SYS_UserInfo WHERE FUserName = #{0} AND FPassword =  #{1}
+    </select>
+
+</mapper>

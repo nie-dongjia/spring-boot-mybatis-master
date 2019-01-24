@@ -1,4 +1,4 @@
-package com.djn.cn.sboot.mybatis.master;
+package com.djn.cn.sboot.mybatis;
 
 
 import org.springframework.boot.SpringApplication;

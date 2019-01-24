@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.djn.cn.spring.boot.master.base.dao.IUserInfoDAO">
-	<resultMap id="BaseResultMap" type="com.djn.cn.spring.boot.master.base.entity.UserInfo">
+<mapper namespace="com.djn.cn.sboot.mybatis.base.dao.IUserInfoDAO">
+	<resultMap id="BaseResultMap" type="com.djn.cn.sboot.mybatis.base.entity.UserInfo">
 		<id column="FID" property="id" jdbcType="VARCHAR" />
 		<result column="FName" property="name" jdbcType="VARCHAR" />
 		<result column="FDescription" property="description" jdbcType="VARCHAR" />
@@ -27,7 +27,7 @@
 		FUserName, FPassword, FEmail, FAge, FQQ, FTelphone,
 		FAddress, FSex, FLocked, FActivated, FDeleted
 	</sql>
-	<insert id="save" parameterType="com.djn.cn.spring.boot.master.base.entity.UserInfo">
+	<insert id="save" parameterType="com.djn.cn.sboot.mybatis.base.entity.UserInfo">
 		insert into T_SYS_UserInfo (
 		FID, FName, FDescription,FCreateTime,FCreatorId,FLastUpdateUserId,
         FUserName, FPassword, FEmail, FAge, FQQ, FTelphone,

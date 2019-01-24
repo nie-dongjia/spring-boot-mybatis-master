@@ -20,5 +20,5 @@ public class RedisCacheConstants {
 	/**缓存24个小时*/
 	public static final Long CACHE_XL_EXPIRE    = 86400L;
 	/**KEY模块名*/
-	public static final String CACHE_KEY_MUDLE_NAME  = "SP:MASTER:";
+	public static final String CACHE_KEY_MUDLE_NAME  = "SP:MYBATIS:MASTER:";
 }

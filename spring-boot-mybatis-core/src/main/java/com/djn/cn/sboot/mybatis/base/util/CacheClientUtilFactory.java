@@ -69,6 +69,7 @@ public class CacheClientUtilFactory implements ApplicationContextAware
     {
     	// 最简单的情况，直接返回单个实例Redis访问客户端工具类
     	SingleRedisCacheClient cacheClient = applicationContext.getBean(SingleRedisCacheClient.class);    	
+    	cacheClient.setTimeOut(3600);
     	return cacheClient;
     }
 }

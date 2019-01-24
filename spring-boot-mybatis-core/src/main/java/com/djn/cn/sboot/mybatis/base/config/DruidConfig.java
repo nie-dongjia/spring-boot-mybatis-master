@@ -19,7 +19,7 @@ import com.alibaba.druid.support.http.StatViewServlet;
 import com.alibaba.druid.support.http.WebStatFilter;
  
 @Configuration
-@MapperScan("com.djn.cn.spring.boot.master.*.dao")
+@MapperScan("com.djn.cn.sboot.mybatis.*.dao")
 public class DruidConfig {
 	private Logger logger = LoggerFactory.getLogger(getClass());
  

@@ -1,17 +1,40 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.djn.cn.sboot.mybatis.base.dao.TBOneMapper" >
-  <resultMap id="BaseResultMap" type="com.djn.cn.sboot.mybatis.base.entity.TBOne" >
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.djn.cn.sboot.mybatis.base.dao.TBOneMapper">
+  <resultMap id="BaseResultMap" type="com.djn.cn.sboot.mybatis.base.entity.TBOne">
     <!--
       WARNING - @mbggenerated
     -->
-    <id column="id" property="id" jdbcType="BIGINT" />
-    <result column="name" property="name" jdbcType="VARCHAR" />
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="lastUpdateTime" jdbcType="TIMESTAMP" property="lastUpdateTime" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="creatorId" jdbcType="VARCHAR" property="creatorId" />
+    <result column="lastUpdateUserId" jdbcType="VARCHAR" property="lastUpdateUserId" />
+
+    <result column="secret" jdbcType="VARCHAR" property="secret" />
+    <result column="hidden" jdbcType="BIT" property="hidden" />
+    <result column="fullName" jdbcType="VARCHAR" property="fullName" />
+    <result column="shortName" jdbcType="VARCHAR" property="shortName" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+    <result column="showUrl" jdbcType="VARCHAR" property="showUrl" />
+    <result column="callbackAddrUrl" jdbcType="VARCHAR" property="callbackAddrUrl" />
+    <result column="publishDate" jdbcType="TIMESTAMP" property="publishDate" />
+    <result column="origin" jdbcType="VARCHAR" property="origin" />
+    <result column="icon" jdbcType="VARCHAR" property="icon" />
+    <result column="version" jdbcType="VARCHAR" property="version" />
+    <result column="recommend" jdbcType="BIT" property="recommend" />
+    <result column="free" jdbcType="BIT" property="free" />
+    <result column="appCategoryId" jdbcType="VARCHAR" property="appCategoryId" />
   </resultMap>
-  <sql id="Base_Column_List" >
+  <sql id="Base_Column_List">
     <!--
       WARNING - @mbggenerated
     -->
-    id, name
+    id, name, createTime, lastUpdateTime, description, creatorId, lastUpdateUserId,
+    secret, hidden, fullName, shortName, type, state, showUrl, callbackAddrUrl, publishDate, 
+    origin, icon, version, recommend, free, appCategoryId
   </sql>
 </mapper>

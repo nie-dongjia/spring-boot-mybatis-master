@@ -3,6 +3,8 @@ package com.djn.cn.sboot.mybatis.master.test;
 
 
 
+import java.util.Date;
+
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -23,6 +25,9 @@ public class TKOneServiceTest extends AbstractTestCase {
 	public void tBOneMapperAddTest() {
 		TBOne tBOne = new TBOne();
 		tBOne.setName("聂冬佳");
+		tBOne.setCreateTime(new Date());
+		tBOne.setPublishDate(new Date());
+		
 		tBOneMapper.insertSelective(tBOne);
 		System.out.println(tBOne);
 	}

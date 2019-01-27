@@ -17,9 +17,10 @@ import org.springframework.context.annotation.Primary;
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.support.http.StatViewServlet;
 import com.alibaba.druid.support.http.WebStatFilter;
+import com.djn.cn.sboot.mybatis.base.util.MyMapper;
  
 @Configuration
-@MapperScan("com.djn.cn.sboot.mybatis.*.dao")
+@MapperScan(basePackages="com.djn.cn.sboot.mybatis.*.dao" , markerInterface = MyMapper.class)
 public class DruidConfig {
 	private Logger logger = LoggerFactory.getLogger(getClass());
  

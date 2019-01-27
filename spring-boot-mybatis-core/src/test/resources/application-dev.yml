@@ -1,12 +1,12 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/DB_TK?useUnicode=true&characterEncoding=UTF-8
+    url: jdbc:mysql://mysql.host:3306/DB_TK?useUnicode=true&characterEncoding=UTF-8
     username: root
     password: root
     driver-class-name: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
-    initialSize: 15
-    minIdle: 15
+    initialSize: 1
+    minIdle: 1
     maxActive: 20
     maxWait: 60000
     timeBetweenEvictionRunsMillis: 60000

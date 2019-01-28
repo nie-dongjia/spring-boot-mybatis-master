@@ -37,4 +37,11 @@
     secret, hidden, fullName, shortName, type, state, showUrl, callbackAddrUrl, publishDate, 
     origin, icon, version, recommend, free, appCategoryId
   </sql>
+  
+  <select id="selectByCondition" resultMap="BaseResultMap" parameterType="tk.mybatis.mapper.entity.Condition" >
+    SELECT 
+    <include refid="Base_Column_List" />
+    FROM  T_TK_TBOne
+    <!--  -->
+  </select>
 </mapper>

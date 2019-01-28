@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.djn.cn.sboot.mybatis.base.constants.RedisCacheConstants;
-import com.djn.cn.sboot.mybatis.base.service.ITKOneService;
+import com.djn.cn.sboot.mybatis.base.service.ITBOneService;
 import com.djn.cn.sboot.mybatis.base.util.CacheClient;
 import com.djn.cn.sboot.mybatis.base.util.CacheClientUtilFactory;
 
@@ -17,7 +17,7 @@ import com.djn.cn.sboot.mybatis.base.util.CacheClientUtilFactory;
 @Controller
 public class UserInfoController  {
 	@Autowired
-	private ITKOneService iTKOneService;
+	private ITBOneService iTKOneService;
     @ResponseBody
     @RequestMapping(value = "/")
     String home() {   
@@ -28,6 +28,6 @@ public class UserInfoController  {
     @ResponseBody
     @RequestMapping(value = "/list")
     Object list() {   
-    	return iTKOneService.listAll();
+    	return iTKOneService.selectAll();
     }
 }

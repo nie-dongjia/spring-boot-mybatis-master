@@ -84,6 +84,6 @@ CREATE TABLE `T_TK_TBTwo` (
 SELECT id,NAME,createTime,lastUpdateTime,description,creatorId,lastUpdateUserId,
 secret,hidden,fullName,shortName,TYPE,state,showUrl,callbackAddrUrl,publishDate,origin,
 icon,VERSION,recommend,free,appCategoryId 
- FROM T_TK_TBOne
+FROM T_TK_TBOne
 
 

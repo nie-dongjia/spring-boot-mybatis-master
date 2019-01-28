@@ -23,13 +23,15 @@ public class TKOneServiceTest extends AbstractTestCase {
 	
 	@Test
 	public void tBOneMapperAddTest() {
-		TBOne tBOne = new TBOne();
-		tBOne.setName("聂冬佳");
-		tBOne.setCreateTime(new Date());
-		tBOne.setPublishDate(new Date());
-		
-		tBOneMapper.insertSelective(tBOne);
-		System.out.println(tBOne);
+		for(int i = 0 ; i < 99;i ++ ){
+			TBOne tBOne = new TBOne();
+			tBOne.setName("聂冬佳:"+i);
+			tBOne.setCreateTime(new Date());
+			tBOne.setPublishDate(new Date());
+			
+			tBOneMapper.insertSelective(tBOne);
+		}
+		System.out.println("end");
 	}
 	
 }

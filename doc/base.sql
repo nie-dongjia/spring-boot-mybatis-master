@@ -90,3 +90,12 @@ SELECT * FROM T_TK_TBOne
 SELECT id,NAME,createTime,lastUpdateTime,description,creatorId,lastUpdateUserId,secret,hidden,fullName,shortName,TYPE,state,showUrl,callbackAddrUrl,publishDate,origin,icon,VERSION,recommend,free,appCategoryId  FROM T_TK_TBOne
 
 
+
+SELECT COUNT(1) FROM T_TK_TBOne;
+
+SELECT * FROM T_TK_TBOne WHERE  NAME = '聂冬佳';
+
+
+
+
+

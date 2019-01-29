@@ -20,10 +20,10 @@ import tk.mybatis.mapper.entity.Example.Criteria;
 
 public class TKOneServiceTest extends AbstractTestCase {
 	@Autowired
-	private ITBOneService tBOneMapper;
+	private ITBOneService iTBOneService;
 	@Test
 	public void tBOneMapperTest() {
-		System.out.println("AAAAAAAAAAA:"+tBOneMapper.selectAll());
+		System.out.println("AAAAAAAAAAA:"+iTBOneService.selectAll());
 	}
 	
 	@Test
@@ -34,16 +34,16 @@ public class TKOneServiceTest extends AbstractTestCase {
 			tBOne.setCreateTime(new Date());
 			tBOne.setPublishDate(new Date());
 			
-			tBOneMapper.insertSelective(tBOne);
+			iTBOneService.insertSelective(tBOne);
 		}
 		System.out.println("end");
 	}
 	@Test
 	public void tBOneMapperfindByConditionTest() {
-		String name = "聂冬佳1";
+		String name = "聂冬佳";
 		Condition condition = new Condition(TBOne.class);
-        condition.createCriteria().andCondition("name.eq", name);
-        List<TBOne> tBOnes = tBOneMapper.selectByCondition(condition);
+        condition.createCriteria().andCondition("name = ", name);
+        List<TBOne> tBOnes = iTBOneService.selectByCondition(condition);
         System.out.println("tBOnes:"+tBOnes.size());
 	}
 	@Test
@@ -52,7 +52,7 @@ public class TKOneServiceTest extends AbstractTestCase {
 		Example example = new Example(TBOne.class);
 	    Example.Criteria criteria = example.createCriteria();
 	    criteria.andEqualTo("name", name);
-		List<TBOne> tBOnes = tBOneMapper.selectByExample(example);
+		List<TBOne> tBOnes = iTBOneService.selectByExample(example);
 		System.out.println("tBOnes:"+tBOnes.size());
 	}
 	

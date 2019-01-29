@@ -17,7 +17,7 @@ public class TBOneServiceImpl extends BaseServiceImpl<TBOne> implements ITBOneSe
 	private TBOneMapper tBOneMapper;
 	@Override
 	public List<TBOne> selectByCondition(Condition condition) {
-		return tBOneMapper.selectAll();
+		return tBOneMapper.selectByCondition(condition);
 	}
 
 }

@@ -51,6 +51,4 @@ public interface ITBOneService extends IBaseService<TBOne>{
 	 * @author op.nie-dongjia
 	 */
 	void insertTranslateOne();
-	void insertTranslateTwo();
-	void insertTranslateThree();
 }

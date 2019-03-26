@@ -39,25 +39,7 @@ public class TBOneServiceImpl extends BaseServiceImpl<TBOne> implements ITBOneSe
 		// TODO Auto-generated method stub
 		
 	}
-	@Override
-	public void insertTranslateTwo() {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void insertTranslateThree() {
-		// TODO Auto-generated method stub
-		
-	}
-	/**
-	 * 
-	 * insetLocalNoRuntimeException  本地insert NoRuntimeException 
-	 *   
-	 * @since 1.0
-	 * @author op.nie-dongjia
-	 */
-	private void insetLocalNoRuntimeException(){
-			
-	}
+
+
 
 }

@@ -7,17 +7,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.djn.cn.sboot.mybatis.base.dao.TBOneMapper;
+import com.djn.cn.sboot.mybatis.base.dao.TBTwoMapper;
 import com.djn.cn.sboot.mybatis.base.entity.TBOne;
+import com.djn.cn.sboot.mybatis.base.entity.TBTwo;
 import com.djn.cn.sboot.mybatis.base.service.ITBOneService;
+import com.djn.cn.sboot.mybatis.base.service.ITBTwoService;
 
 import tk.mybatis.mapper.entity.Condition;
 @Service
-public class TBOneServiceImpl extends BaseServiceImpl<TBOne> implements ITBOneService{
+public class TBTwoServiceImpl extends BaseServiceImpl<TBTwo> implements ITBTwoService{
 	@Autowired
-	private TBOneMapper tBOneMapper;
+	private TBTwoMapper tBTwoMapper;
 	@Override
-	public List<TBOne> selectByCondition(Condition condition) {
-		return tBOneMapper.selectByCondition(condition);
+	public List<TBTwo> selectByCondition(Condition condition) {
+		return tBTwoMapper.selectByCondition(condition);
 	}
 	@Override
 	public void insertNoRuntimeException() {
@@ -33,31 +36,6 @@ public class TBOneServiceImpl extends BaseServiceImpl<TBOne> implements ITBOneSe
 	public void insertException() {
 		// TODO Auto-generated method stub
 		
-	}
-	@Override
-	public void insertTranslateOne() {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void insertTranslateTwo() {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void insertTranslateThree() {
-		// TODO Auto-generated method stub
-		
-	}
-	/**
-	 * 
-	 * insetLocalNoRuntimeException  本地insert NoRuntimeException 
-	 *   
-	 * @since 1.0
-	 * @author op.nie-dongjia
-	 */
-	private void insetLocalNoRuntimeException(){
-			
 	}
 
 }

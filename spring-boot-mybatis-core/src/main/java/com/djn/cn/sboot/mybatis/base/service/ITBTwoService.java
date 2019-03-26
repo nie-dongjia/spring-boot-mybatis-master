@@ -4,11 +4,12 @@ package com.djn.cn.sboot.mybatis.base.service;
 
 import java.util.List;
 
-import com.djn.cn.sboot.mybatis.base.entity.TBOne;
+
+import com.djn.cn.sboot.mybatis.base.entity.TBTwo;
 
 import tk.mybatis.mapper.entity.Condition;
 
-public interface ITBOneService extends IBaseService<TBOne>{
+public interface ITBTwoService extends IBaseService<TBTwo>{
 	/**
 	 * 
 	 * selectByCondition  TODO
@@ -18,7 +19,7 @@ public interface ITBOneService extends IBaseService<TBOne>{
 	 * @since 1.0
 	 * @author op.nie-dongjia
 	 */
-	List<TBOne> selectByCondition(Condition condition);
+	List<TBTwo> selectByCondition(Condition condition);
 	/**
 	 * 
 	 * insertNoRuntimeException  循环插入 没有 抛RuntimeException 
@@ -43,14 +44,4 @@ public interface ITBOneService extends IBaseService<TBOne>{
 	 * @author op.nie-dongjia
 	 */
 	void insertException();
-	/**
-	 * 
-	 * insertTranslateOne  TODO
-	 *   
-	 * @since 1.0
-	 * @author op.nie-dongjia
-	 */
-	void insertTranslateOne();
-	void insertTranslateTwo();
-	void insertTranslateThree();
 }

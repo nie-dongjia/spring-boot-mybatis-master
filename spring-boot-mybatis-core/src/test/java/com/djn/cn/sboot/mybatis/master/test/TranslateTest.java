@@ -8,7 +8,6 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.djn.cn.sboot.mybatis.base.service.ITBOneService;
-import com.djn.cn.sboot.mybatis.base.service.ITranslateTest;
 
 
 
@@ -28,8 +27,6 @@ import com.djn.cn.sboot.mybatis.base.service.ITranslateTest;
  */
 public class TranslateTest extends AbstractTestCase {
 	@Autowired
-	private ITranslateTest iTranslateTest;
-	@Autowired
 	private ITBOneService iTBOneService;
 	// 单方法RuntimeException测试事务结构:数据未插入  事务有效   
 	@Test
@@ -45,6 +42,11 @@ public class TranslateTest extends AbstractTestCase {
 	@Test
 	public void insertExceptionWithTransactionalTest(){
 			iTBOneService.insertExceptionWithTransactional();
+	}
+	// 单方法Exception测试事务结构     手动回滚 
+	@Test
+	public void insertExceptionWithTransactionalPlusTest(){
+		iTBOneService.insertExceptionWithTransactionalPlus();
 	}
 	
 	// 本地service 本地事务方法调用本地非事务方法 事务依旧生效  

@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.interceptor.TransactionAspectSupport;
 
 import com.djn.cn.sboot.mybatis.base.dao.TBOneMapper;
 import com.djn.cn.sboot.mybatis.base.entity.TBOne;
@@ -148,6 +149,26 @@ public class TBOneServiceImpl extends BaseServiceImpl<TBOne> implements ITBOneSe
 			tBOneMapper.insertSelective(tBOne);
 		}
 		insertTransactionalRunTimeException();
+	}
+	@Override
+	@Transactional
+	public void insertExceptionWithTransactionalPlus() {
+		try {
+			for(int i = 0 ; i < 10;i ++ ){
+				TBOne tBOne = new TBOne();
+				tBOne.setName("insertRuntimeExceptionWithTransactional聂冬佳:"+i);
+				tBOne.setCreateTime(new Date());
+				tBOne.setPublishDate(new Date());
+				tBOneMapper.insertSelective(tBOne);
+			}
+			throw new Exception("发生Exception异常");
+		} catch (Exception e) {
+			// 手动回滚
+			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); 
+			e.printStackTrace();
+		}
+		
+		
 	}
 
 

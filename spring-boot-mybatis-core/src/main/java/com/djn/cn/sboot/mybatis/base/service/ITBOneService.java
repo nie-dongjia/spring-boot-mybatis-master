@@ -61,6 +61,7 @@ public interface ITBOneService extends IBaseService<TBOne>{
 	void insertRuntimeExceptionWithTransactional();
 	void insertRuntimeExceptionWithNoTransactional();
 	void insertExceptionWithTransactional();
+	void insertExceptionWithTransactionalPlus();
 	void insertTransactionalCallNoTransactional();
 	void insertNoTransactionalCallTransactional();
 	void insertNoTransactionalCallTransactionalPlus();

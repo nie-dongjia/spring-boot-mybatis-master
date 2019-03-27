@@ -64,8 +64,5 @@ public class TranslateTest extends AbstractTestCase {
 	public void insertNoTransactionalCallTransactionalPlusTest(){
 			iTBOneService.insertNoTransactionalCallTransactionalPlus();
 	}
-		
-
-
-
+	
 }

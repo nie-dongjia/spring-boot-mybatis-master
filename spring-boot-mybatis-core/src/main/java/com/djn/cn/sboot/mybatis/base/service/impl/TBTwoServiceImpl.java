@@ -1,41 +1,60 @@
 package com.djn.cn.sboot.mybatis.base.service.impl;
 
 
-import java.util.List;
+
+
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import com.djn.cn.sboot.mybatis.base.dao.TBOneMapper;
 import com.djn.cn.sboot.mybatis.base.dao.TBTwoMapper;
-import com.djn.cn.sboot.mybatis.base.entity.TBOne;
 import com.djn.cn.sboot.mybatis.base.entity.TBTwo;
-import com.djn.cn.sboot.mybatis.base.service.ITBOneService;
 import com.djn.cn.sboot.mybatis.base.service.ITBTwoService;
-
-import tk.mybatis.mapper.entity.Condition;
 @Service
 public class TBTwoServiceImpl extends BaseServiceImpl<TBTwo> implements ITBTwoService{
 	@Autowired
 	private TBTwoMapper tBTwoMapper;
+
 	@Override
-	public List<TBTwo> selectByCondition(Condition condition) {
-		return tBTwoMapper.selectByCondition(condition);
+	@Transactional
+	public void insertWithTransactional() {
+		for(int i = 0 ; i < 10;i ++ ){
+			TBTwo tBTwo = new TBTwo();
+			tBTwo.setName("insertRuntimeExceptionWithTransactional聂冬佳:"+i);
+			tBTwo.setCreateTime(new Date());
+			tBTwo.setPublishDate(new Date());
+			tBTwoMapper.insertSelective(tBTwo);
+		}
+		int i = 1 / 0 ;
+		System.out.println(i);
 	}
+
 	@Override
-	public void insertNoRuntimeException() {
+	public void insertWithNoTransactionalNoRunTimeException() {
+		for(int i = 0 ; i < 10;i ++ ){
+			TBTwo tBTwo = new TBTwo();
+			tBTwo.setName("insertRuntimeExceptionWithTransactional聂冬佳:"+i);
+			tBTwo.setCreateTime(new Date());
+			tBTwo.setPublishDate(new Date());
+			tBTwoMapper.insertSelective(tBTwo);
+		}
+	}
+
+	@Override
+	public void insertWithNoTransactionalRunTimeException() {
 		// TODO Auto-generated method stub
-		
+		for(int i = 0 ; i < 10;i ++ ){
+			TBTwo tBTwo = new TBTwo();
+			tBTwo.setName("insertRuntimeExceptionWithTransactional聂冬佳:"+i);
+			tBTwo.setCreateTime(new Date());
+			tBTwo.setPublishDate(new Date());
+			tBTwoMapper.insertSelective(tBTwo);
+		}
+		int i = 1 / 0 ;
+		System.out.println(i);
 	}
-	@Override
-	public void insertRuntimeException() {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void insertException() {
-		// TODO Auto-generated method stub
-		
-	}
+
 
 }

@@ -15,10 +15,12 @@ package com.djn.cn.sboot.mybatis.base.service;
 public interface ITranslateTest {
 	/**
 	 * 
-	 * testTranslateOne 
+	 * testTranslateOne   
 	 *   
 	 * @since 1.0
 	 * @author op.nie-dongjia
 	 */
 	void testTranslateOne();
+	
+	
 }

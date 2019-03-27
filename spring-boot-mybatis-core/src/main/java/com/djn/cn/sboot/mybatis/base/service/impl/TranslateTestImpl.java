@@ -37,7 +37,6 @@ public class TranslateTestImpl implements ITranslateTest{
 
 	@Override
 	public void testTranslateOne() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("传播机制测试");
 	}
 }

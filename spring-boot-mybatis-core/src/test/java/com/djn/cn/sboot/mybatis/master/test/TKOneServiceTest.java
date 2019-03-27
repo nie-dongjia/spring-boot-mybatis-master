@@ -14,7 +14,6 @@ import com.djn.cn.sboot.mybatis.base.service.ITBOneService;
 
 import tk.mybatis.mapper.entity.Condition;
 import tk.mybatis.mapper.entity.Example;
-import tk.mybatis.mapper.entity.Example.Criteria;
 
 
 

@@ -12,12 +12,15 @@ import org.springframework.transaction.interceptor.TransactionAspectSupport;
 import com.djn.cn.sboot.mybatis.base.dao.TBOneMapper;
 import com.djn.cn.sboot.mybatis.base.entity.TBOne;
 import com.djn.cn.sboot.mybatis.base.service.ITBOneService;
+import com.djn.cn.sboot.mybatis.base.service.ITBTwoService;
 
 import tk.mybatis.mapper.entity.Condition;
 @Service
 public class TBOneServiceImpl extends BaseServiceImpl<TBOne> implements ITBOneService{
 	@Autowired
 	private TBOneMapper tBOneMapper;
+	@Autowired
+	private ITBTwoService iTBTwoService;
 	@Override
 	public List<TBOne> selectByCondition(Condition condition) {
 		return tBOneMapper.selectByCondition(condition);
@@ -169,6 +172,30 @@ public class TBOneServiceImpl extends BaseServiceImpl<TBOne> implements ITBOneSe
 		}
 		
 		
+	}
+	@Override
+	@Transactional
+	public void transactionalCallNoTransactionalNoException() {
+		for(int i = 0 ; i < 10;i ++ ){
+			TBOne tBOne = new TBOne();
+			tBOne.setName("insertRuntimeExceptionWithTransactional聂冬佳:"+i);
+			tBOne.setCreateTime(new Date());
+			tBOne.setPublishDate(new Date());
+			tBOneMapper.insertSelective(tBOne);
+		}
+		iTBTwoService.insertWithNoTransactionalNoRunTimeException();
+		int i = 1 /0;
+	}
+	@Override
+	public void noTransactionalCallTransactional() {
+		for(int i = 0 ; i < 10;i ++ ){
+			TBOne tBOne = new TBOne();
+			tBOne.setName("insertRuntimeExceptionWithTransactional聂冬佳:"+i);
+			tBOne.setCreateTime(new Date());
+			tBOne.setPublishDate(new Date());
+			tBOneMapper.insertSelective(tBOne);
+		}
+		iTBTwoService.insertWithTransactional();
 	}
 
 

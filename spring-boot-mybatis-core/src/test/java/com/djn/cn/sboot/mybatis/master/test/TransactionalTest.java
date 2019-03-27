@@ -25,7 +25,7 @@ import com.djn.cn.sboot.mybatis.base.service.ITBOneService;
  * @version   1.0<br/>
  *
  */
-public class TranslateTest extends AbstractTestCase {
+public class TransactionalTest extends AbstractTestCase {
 	@Autowired
 	private ITBOneService iTBOneService;
 	// 单方法RuntimeException测试事务结构:数据未插入  事务有效   
@@ -48,7 +48,6 @@ public class TranslateTest extends AbstractTestCase {
 	public void insertExceptionWithTransactionalPlusTest(){
 		iTBOneService.insertExceptionWithTransactionalPlus();
 	}
-	
 	// 本地service 本地事务方法调用本地非事务方法 事务依旧生效  
 	@Test
 	public void insertTransactionalCallNoTransactionalTest(){
@@ -64,5 +63,14 @@ public class TranslateTest extends AbstractTestCase {
 	public void insertNoTransactionalCallTransactionalPlusTest(){
 			iTBOneService.insertNoTransactionalCallTransactionalPlus();
 	}
-	
+	// 本地service 本地事务方法  调用非本地非事务方法 本地事务方法抛异常   事务生效 
+	@Test
+	public void transactionalCallNoTransactionalNoExceptionTest(){
+		iTBOneService.transactionalCallNoTransactionalNoException();
+	}
+	// 本地service 本地非事务方法  调用非本地事务方法 非本地事务方法抛异常   非本地事务 生效 ，本地不会滚 
+	@Test
+	public void noTransactionalCallTransactionalTest(){
+		iTBOneService.noTransactionalCallTransactional();
+	}
 }

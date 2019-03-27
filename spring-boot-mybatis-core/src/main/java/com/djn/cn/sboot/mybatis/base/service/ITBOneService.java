@@ -67,6 +67,8 @@ public interface ITBOneService extends IBaseService<TBOne>{
 	void insertNoTransactionalCallTransactionalPlus();
 	
 	
-	
+	// 不同service事务  调用分析
+	void transactionalCallNoTransactionalNoException();
+	void noTransactionalCallTransactional();
 
 }

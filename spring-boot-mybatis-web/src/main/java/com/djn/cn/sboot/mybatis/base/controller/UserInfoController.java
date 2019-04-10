@@ -1,5 +1,7 @@
 package com.djn.cn.sboot.mybatis.base.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +18,7 @@ import com.djn.cn.sboot.mybatis.base.util.CacheClientUtilFactory;
 
 @Controller
 public class UserInfoController  {
+	Logger logger = LoggerFactory.getLogger(getClass());
 	@Autowired
 	private ITBOneService iTKOneService;
     @ResponseBody
@@ -28,6 +31,9 @@ public class UserInfoController  {
     @ResponseBody
     @RequestMapping(value = "/list")
     Object list() {   
+    	logger.debug("debug");
+    	logger.info("info");
+    	logger.error("error");
     	return iTKOneService.selectAll();
     }
 }

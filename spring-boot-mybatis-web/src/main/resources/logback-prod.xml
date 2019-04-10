@@ -1,10 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configuration>
-<include resource="org/springframework/boot/logging/logback/base.xml" />
-<!-- 日志级别设置为 ERROR -->
-<root level="ERROR" />
-<!-- 输出 SQL 语句信息 -->
-<!-- <logger name="org.hibernate.SQL" level="DEBUG"/> -->
-<!-- 输出 SQL 语句参数信息 -->
-<!-- <logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="TRACE"/> -->
+<configuration scan="true" scanPeriod="10 seconds">
+    <!--定义日志输出目录-->
+    <property name="LOG_HOME" value="${catalina.home}/logs/app"/>
+    <property name="APP_NAME" value="app"/>
+
+    <contextName>${app_name}</contextName>
+
+    <!-- 控制台输出的日志格式 -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+    <!-- 输出error log 至统一日志文件中 -->
+    <appender name="ERROR_APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_HOME}/error/${APP_NAME}_error_%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <!-- 根据日志文件按天回滚，保存时间为30天，30天之前的都将被清理掉 -->
+            <maxHistory>30</maxHistory>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>20MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <!-- 只打印ERROR日志 -->
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+    <!-- 输出info log 至统一日志文件中 -->
+    <appender name="INFO_APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_HOME}/info/${APP_NAME}_info_%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <!-- 根据日志文件按天回滚，保存时间为30天，30天之前的都将被清理掉 -->
+            <maxHistory>30</maxHistory>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>20MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <!-- 只打印ERROR日志 -->
+            <level>INFO</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <root level="info">
+    	<appender-ref ref="STDOUT" />
+    	<appender-ref ref="INFO_APPENDER" />
+    	<appender-ref ref="ERROR_APPENDER" />
+    </root>
 </configuration>

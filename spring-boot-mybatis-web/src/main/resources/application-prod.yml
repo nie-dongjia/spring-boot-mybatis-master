@@ -19,6 +19,22 @@ spring:
     maxPoolPreparedStatementPerConnectionSize: 20
     filters: stat,wall,log4j
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+#  redis 配置
+  redis:
+    host: redis.host
+    port: 6379
+    database: 1
+    pool: 
+      # 连接池中的最大空闲连接
+      max-idle: 100
+      # 连接池中的最小空闲连接
+      min-idle: 8
+      # 连接池最大连接数（使用负值表示没有限制）
+      max-active: 1000
+      # 连接池最大阻塞等待时间（使用负值表示没有限制）
+      max-wait: -1  
+      # 连接超时时间（毫秒）
+      timeout: 0 
 logging:
   config: classpath:logback-prod.xml
 message: 

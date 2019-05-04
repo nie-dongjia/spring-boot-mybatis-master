@@ -16,9 +16,9 @@ public class RedisTest extends AbstractTestCase {
 	@Test
 	public void redisTest() {
 		CacheClient singleRedisCacheClient = CacheClientUtilFactory.createClient();
-		singleRedisCacheClient.setCache(RedisCacheConstants.CACHE_KEY_MUDLE_NAME+"test2", "hello123");
-		Assert.assertEquals(singleRedisCacheClient.getCache(RedisCacheConstants.CACHE_KEY_MUDLE_NAME+"test2"), "hello123");
-		System.out.println(singleRedisCacheClient.getCache(RedisCacheConstants.CACHE_KEY_MUDLE_NAME+"test2"));
+		singleRedisCacheClient.setCache(RedisCacheConstants.CACHE_KEY_MUDLE_NAME+"test1", "hello123");
+		Assert.assertEquals(singleRedisCacheClient.getCache(RedisCacheConstants.CACHE_KEY_MUDLE_NAME+"test1"), "hello123");
+		System.out.println(singleRedisCacheClient.getCache(RedisCacheConstants.CACHE_KEY_MUDLE_NAME+"test1"));
 	}
 	
 }

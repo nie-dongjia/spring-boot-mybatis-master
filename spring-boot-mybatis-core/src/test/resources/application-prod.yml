@@ -6,9 +6,9 @@ spring:
         url: jdbc:mysql://mysql.host:3306/DB_TK?useUnicode=true&characterEncoding=UTF-8
         username: root 
         password: root
-        initialSize: 10 
-        minIdle: 10 
-        maxActive: 30 
+        initialSize: 1 
+        minIdle: 1 
+        maxActive: 2 
         maxWait: 15000 
         timeBetweenEvictionRunsMillis: 120000 
         minEvictableIdleTimeMillis: 300000 

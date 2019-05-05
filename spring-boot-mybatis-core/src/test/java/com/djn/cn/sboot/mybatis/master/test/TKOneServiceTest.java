@@ -32,7 +32,6 @@ public class TKOneServiceTest extends AbstractTestCase {
 			tBOne.setName("聂冬佳:"+i);
 			tBOne.setCreateTime(new Date());
 			tBOne.setPublishDate(new Date());
-			
 			iTBOneService.insertSelective(tBOne);
 			System.out.println(tBOne);
 		}

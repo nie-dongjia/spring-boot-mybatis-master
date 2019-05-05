@@ -34,6 +34,7 @@ public class TKOneServiceTest extends AbstractTestCase {
 			tBOne.setPublishDate(new Date());
 			
 			iTBOneService.insertSelective(tBOne);
+			System.out.println(tBOne);
 		}
 		System.out.println("end");
 	}

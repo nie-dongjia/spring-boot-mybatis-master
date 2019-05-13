@@ -13,5 +13,6 @@ package com.djn.cn.sboot.mybatis.order.util;
  *
  */
 public class OrderUtil {
-
+	// 生成订单号
+	// 系统交易号 
 }

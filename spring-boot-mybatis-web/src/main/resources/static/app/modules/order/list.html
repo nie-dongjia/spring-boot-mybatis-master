@@ -1,0 +1,11 @@
+<table>
+<tr>
+		<td><strong>Id</strong></td>
+		<td><strong>Code</strong></td>
+		<td><strong>systemOrder</strong></td>
+	</tr>
+	<tr ng-repeat='orderInfo in orderInfos'>
+		<td>{{orderInfo.code}}</td>
+		<td><a href='#/view/{{orderInfo.id}}'>{{orderInfo.code}}</td>
+	</tr>
+</table>

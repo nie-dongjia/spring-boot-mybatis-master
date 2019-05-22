@@ -1,2 +1,2 @@
-var appModule = angular.module('app', []);
+var appModule = angular.module('app-order', []);
 

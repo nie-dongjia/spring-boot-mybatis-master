@@ -10,6 +10,7 @@
 		<result column="description" jdbcType="VARCHAR" property="description" />
 		<result column="creatorId" jdbcType="VARCHAR" property="creatorId" />
 		<result column="lastUpdateUserId" jdbcType="VARCHAR" property="lastUpdateUserId" />
+		<result column="lockVersion" jdbcType="BIGINT" property="lockVersion" />
 
 		<result column="secret" jdbcType="VARCHAR" property="secret" />
 		<result column="hidden" jdbcType="BIT" property="hidden" />
@@ -33,7 +34,7 @@
 		lastUpdateUserId,
 		secret, hidden, fullName, shortName, type, state, showUrl, callbackAddrUrl,
 		publishDate,
-		origin, icon, version, recommend, free, appCategoryId
+		origin, icon, version,lockVersion, recommend, free, appCategoryId
 	</sql>
 	<sql id="whereParse">
 		<if test="_parameter != null">

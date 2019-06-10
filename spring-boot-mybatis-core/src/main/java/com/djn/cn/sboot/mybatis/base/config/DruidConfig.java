@@ -4,7 +4,6 @@ import java.sql.SQLException;
 
 import javax.sql.DataSource;
 
-import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -18,6 +17,8 @@ import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.support.http.StatViewServlet;
 import com.alibaba.druid.support.http.WebStatFilter;
 import com.djn.cn.sboot.mybatis.base.util.MyMapper;
+
+import tk.mybatis.spring.annotation.MapperScan;
  
 @Configuration
 @MapperScan(basePackages="com.djn.cn.sboot.mybatis.*.dao" , markerInterface = MyMapper.class)

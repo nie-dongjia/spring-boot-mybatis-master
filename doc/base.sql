@@ -15,7 +15,7 @@
 */
 -- 生成DB_TK数据库  
 DROP DATABASE IF EXISTS DB_TK ;
-CREATE DATABASE DB_TK CHARACTER SET utf8mb4 COLLATE utf8_general_ci;
+CREATE DATABASE DB_TK CHARACTER  SET = utf8mb4 COLLATE = utf8mb4_unicode_ci; 
 USE DB_TK;
 
 SET NAMES utf8mb4;
@@ -45,11 +45,12 @@ CREATE TABLE `T_TK_TBOne` (
   `origin` VARCHAR(40)  DEFAULT "" COMMENT '应用图标',
   `icon` VARCHAR(40)  DEFAULT "" COMMENT '应用图标',
   `version` VARCHAR(40)  DEFAULT "" COMMENT '版本',
+  `lockVersion` BIGINT(20) NOT NULL DEFAULT 0 COMMENT '乐观锁版本号',
   `recommend`TINYINT(1)   DEFAULT 0  COMMENT '是否推荐',
   `free`TINYINT(1)   DEFAULT 0  COMMENT '是否免费',
   `appCategoryId`  VARCHAR(40) DEFAULT ""  COMMENT '关联应用类型',
    PRIMARY KEY (`id`)
-) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COMMENT='T_TK_TBOne';
+) ENGINE=INNODB DEFAULT CHARSET=utf8mb4  COLLATE=utf8mb4_unicode_ci COMMENT='T_TK_TBOne';
 
 DROP TABLE IF EXISTS `T_TK_TBTwo`;
 CREATE TABLE `T_TK_TBTwo` (
@@ -72,28 +73,19 @@ CREATE TABLE `T_TK_TBTwo` (
   `origin` VARCHAR(40)  DEFAULT "" COMMENT '应用图标',
   `icon` VARCHAR(40)  DEFAULT "" COMMENT '应用图标',
   `version` VARCHAR(40)  DEFAULT "" COMMENT '版本',
+  `lockVersion` BIGINT(20) NOT NULL DEFAULT 0 COMMENT '乐观锁版本号',
   `recommend`TINYINT(1)   DEFAULT 0  COMMENT '是否推荐',
   `free`TINYINT(1)   DEFAULT 0  COMMENT '是否免费',
   `appCategoryId`  VARCHAR(40) DEFAULT ""  COMMENT '关联应用类型',
    PRIMARY KEY (`id`)
-) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COMMENT='基础应用信息表';
+) ENGINE=INNODB DEFAULT CHARSET=utf8mb4  COLLATE=utf8mb4_unicode_ci COMMENT='基础应用信息表';
 
 
 
 
-SELECT id,NAME,createTime,lastUpdateTime,description,creatorId,lastUpdateUserId,
-secret,hidden,fullName,shortName,TYPE,state,showUrl,callbackAddrUrl,publishDate,origin,
-icon,VERSION,recommend,free,appCategoryId 
-FROM T_TK_TBOne
-
-SELECT * FROM T_TK_TBOne;
-SELECT id,NAME,createTime,lastUpdateTime,description,creatorId,lastUpdateUserId,secret,hidden,fullName,shortName,TYPE,state,showUrl,callbackAddrUrl,publishDate,origin,icon,VERSION,recommend,free,appCategoryId  FROM T_TK_TBOne
 
 
 
-SELECT COUNT(1) FROM T_TK_TBOne;
-
-SELECT * FROM T_TK_TBOne WHERE  NAME = '聂冬佳';
 
 
 

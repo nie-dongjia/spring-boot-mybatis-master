@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import tk.mybatis.mapper.annotation.Version;
+
 /**
  * T_TK_TBOne
  */
@@ -127,6 +129,12 @@ public class TBOne {
      */
     @Column(name = "version")
     private String version;
+    /**
+     * 乐观锁版本号
+     */
+    @Version
+    @Column(name = "lockVersion")
+    private Long lockVersion;
 
     /**
      * 是否推荐
@@ -497,6 +505,15 @@ public class TBOne {
     public void setAppCategoryId(String appCategoryId) {
         this.appCategoryId = appCategoryId == null ? null : appCategoryId.trim();
     }
+    
+
+	public Long getLockVersion() {
+		return lockVersion;
+	}
+
+	public void setLockVersion(Long lockVersion) {
+		this.lockVersion = lockVersion;
+	}
 
 	@Override
 	public String toString() {

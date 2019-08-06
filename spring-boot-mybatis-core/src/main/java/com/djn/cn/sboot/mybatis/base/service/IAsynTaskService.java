@@ -1,4 +1,7 @@
 package com.djn.cn.sboot.mybatis.base.service;
+
+import java.util.concurrent.CountDownLatch;
+
 /**
  * 
  * <b>类   名：</b>IAsynTaskService<br/>
@@ -21,7 +24,7 @@ public interface IAsynTaskService {
 	 * @since 1.0
 	 * @author op.nie-dongjia
 	 */
-	void multipleThreadsInsertBatch(int sumNum);
-	void f1();
-	void f2();
+	void multipleThreadsInsertBatch(int sumNum,CountDownLatch countDownLatch);
+	void f1(CountDownLatch countDownLatch);
+	void f2(CountDownLatch countDownLatch);
 }

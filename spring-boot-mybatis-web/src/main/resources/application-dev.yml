@@ -5,9 +5,9 @@ spring:
     password: root
     driver-class-name: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
-    initialSize: 1
-    minIdle: 1
-    maxActive: 2
+    initialSize: 10
+    minIdle: 10
+    maxActive: 20
     maxWait: 60000
     timeBetweenEvictionRunsMillis: 60000
     minEvictableIdleTimeMillis: 300000

@@ -22,7 +22,7 @@ public class TKOneServiceTest extends AbstractTestCase {
 	@Autowired
 	private ITBOneService iTBOneService;
 	@Autowired
-	private TBOneMapper tBOneMapper;
+	private TBOneMapper tBOneMapper;  
 	@Test
 	public void tBOneMapperTest() {
 		System.out.println("AAAAAAAAAAA:"+iTBOneService.selectAll());

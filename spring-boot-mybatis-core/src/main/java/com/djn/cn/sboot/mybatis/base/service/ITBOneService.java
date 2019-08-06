@@ -70,5 +70,22 @@ public interface ITBOneService extends IBaseService<TBOne>{
 	// 不同service事务  调用分析
 	void transactionalCallNoTransactionalNoException();
 	void noTransactionalCallTransactional();
+	
+	/**
+	 * 
+	 * multipleThreadsInsertBatch  多线程批量插入数据
+	 *
+	 * @param sumNum   
+	 * @since 1.0
+	 * @author op.nie-dongjia
+	 */
+	void multipleThreadsInsertBatch(int sumNum);
+	
+	
+	
+	
+	
+	
+	
 
 }

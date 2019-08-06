@@ -197,6 +197,11 @@ public class TBOneServiceImpl extends BaseServiceImpl<TBOne> implements ITBOneSe
 		}
 		iTBTwoService.insertWithTransactional();
 	}
+	@Override
+	public void multipleThreadsInsertBatch(int sumNum) {
+		// TODO Auto-generated method stub
+		
+	}
 
 
 

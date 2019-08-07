@@ -2,6 +2,8 @@ package com.djn.cn.sboot.mybatis.base.service;
 
 import java.util.concurrent.CountDownLatch;
 
+import com.djn.cn.sboot.mybatis.base.dao.TBOneMapper;
+
 /**
  * 
  * <b>类   名：</b>IAsynTaskService<br/>

@@ -22,17 +22,10 @@ import com.djn.cn.sboot.mybatis.base.util.UUIDUtil;
 public class AsynTaskServiceImpl implements IAsynTaskService {
 	private Logger logger = LoggerFactory.getLogger(getClass());
 	@Autowired
-	private TBOneMapper tBOneMapper;
+	private TBOneMapper tBOneMapper; // 这个是单例 性能并没有本质提升 
 	@Override
 	@Async("asyncServiceExecutor") // 这里进行标注为异步任务，在执行此方法的时候，会单独开启线程来执行
 	public void multipleThreadsInsertBatch(int sumNum,CountDownLatch countDownLatch) {
-//		for(int i = 0 ; i < 50 ;i ++ ){
-//			TBOne tBOne = new TBOne();
-//			tBOne.setName("聂冬佳:"+i);
-//			tBOne.setCreateTime(new Date());
-//			tBOne.setPublishDate(new Date());
-//			tBOneMapper.insertSelective(tBOne);	
-//		}
 		// 每次插入50个 
 		int time = sumNum/100;
 		for(int i = 0 ; i < time ;i ++ ){

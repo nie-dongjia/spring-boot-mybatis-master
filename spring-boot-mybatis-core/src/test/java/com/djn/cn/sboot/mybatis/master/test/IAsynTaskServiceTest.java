@@ -44,7 +44,8 @@ public class IAsynTaskServiceTest extends AbstractTestCase {
 		
 		try {
 			int count = 1000;
-			for (int i = 0; i < 10; i++) {
+			for (int i = 0; i < 5; i++) {
+				iAsynTaskService.multipleThreadsInsertBatch(count,countDownLatch);		
 				iAsynTaskService.multipleThreadsInsertBatch(count,countDownLatch);		
 			}
 			countDownLatch.await();

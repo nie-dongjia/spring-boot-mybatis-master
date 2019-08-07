@@ -13,4 +13,5 @@ public interface ITBTwoService extends IBaseService<TBTwo>{
 	void insertWithTransactional();
 	void insertWithNoTransactionalNoRunTimeException();
 	void insertWithNoTransactionalRunTimeException();
+	void InsertBatch(int sumNum);
 }

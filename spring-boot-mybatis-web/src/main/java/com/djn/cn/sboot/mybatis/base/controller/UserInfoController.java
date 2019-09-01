@@ -40,6 +40,14 @@ public class UserInfoController  {
     	return iTKOneService.selectAll();
     }
     @ResponseBody
+    @RequestMapping(value = "/list2")
+    Object list2() {   
+    	logger.debug("debug");
+    	logger.info("info");
+    	logger.error("error");
+    	return iTKOneService.selectAll();
+    }
+    @ResponseBody
     @RequestMapping(value = "/add")
     Object add() {   
 			TBOne tBOne = new TBOne();

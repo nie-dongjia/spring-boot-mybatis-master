@@ -42,6 +42,15 @@ public class OrderInfoController  {
     	return iTKOneService.selectAll();
     }
     @ResponseBody
+    @RequestMapping(value = "/findById")
+    Object findById(Long id) {   
+    	logger.debug("debug");
+    	logger.info("info");
+    	logger.error("error");
+    	return     	iTKOneService.selectByPrimaryKey(id);
+
+    }
+    @ResponseBody
     @RequestMapping(value = "/add")
     Object add() {   
     	// 订单生成  
